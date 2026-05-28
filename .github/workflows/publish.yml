@@ -1,0 +1,41 @@
+
+name: Publicar sitio Quarto
+ 
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:        # permite ejecutarlo manualmente desde GitHub
+ 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+ 
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+ 
+      - name: Instalar Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+ 
+      - name: Instalar Python (para notebooks con código)
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+ 
+      - name: Instalar dependencias Python
+        run: pip install jupyter numpy matplotlib pandas
+ 
+      - name: Renderizar sitio
+        run: quarto render
+ 
+      - name: Publicar en GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          publish_branch: gh-pages
+ 
