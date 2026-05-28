@@ -1,0 +1,289 @@
+[
+  {
+    "objectID": "talleres/taller-05.html",
+    "href": "talleres/taller-05.html",
+    "title": "Taller 05 — Funciones — Definición y Tipos",
+    "section": "",
+    "text": "Taller del curso Fundamentos de las Matemáticas — Semestre 2026-I."
+  },
+  {
+    "objectID": "talleres/taller-05.html#introducción",
+    "href": "talleres/taller-05.html#introducción",
+    "title": "Taller 05 — Funciones — Definición y Tipos",
+    "section": "",
+    "text": "Taller del curso Fundamentos de las Matemáticas — Semestre 2026-I."
+  },
+  {
+    "objectID": "talleres/taller-05.html#desarrollo",
+    "href": "talleres/taller-05.html#desarrollo",
+    "title": "Taller 05 — Funciones — Definición y Tipos",
+    "section": "1 Desarrollo",
+    "text": "1 Desarrollo\nAgrega aquí el contenido del taller: definiciones, teoremas, ejercicios resueltos."
+  },
+  {
+    "objectID": "talleres/taller-05.html#ejercicios",
+    "href": "talleres/taller-05.html#ejercicios",
+    "title": "Taller 05 — Funciones — Definición y Tipos",
+    "section": "2 Ejercicios",
+    "text": "2 Ejercicios\n\n2.1 Ejercicio 1\nEnunciado.\nSolución:\n\n\n\n2.2 Ejercicio 2\nEnunciado.\nSolución:"
+  },
+  {
+    "objectID": "talleres/taller-05.html#conclusiones",
+    "href": "talleres/taller-05.html#conclusiones",
+    "title": "Taller 05 — Funciones — Definición y Tipos",
+    "section": "Conclusiones",
+    "text": "Conclusiones\nReflexión sobre los temas trabajados."
+  },
+  {
+    "objectID": "talleres/taller-07.html",
+    "href": "talleres/taller-07.html",
+    "title": "Taller 07 — Números Naturales y Enteros",
+    "section": "",
+    "text": "Taller del curso Fundamentos de las Matemáticas — Semestre 2026-I."
+  },
+  {
+    "objectID": "talleres/taller-07.html#introducción",
+    "href": "talleres/taller-07.html#introducción",
+    "title": "Taller 07 — Números Naturales y Enteros",
+    "section": "",
+    "text": "Taller del curso Fundamentos de las Matemáticas — Semestre 2026-I."
+  },
+  {
+    "objectID": "talleres/taller-07.html#desarrollo",
+    "href": "talleres/taller-07.html#desarrollo",
+    "title": "Taller 07 — Números Naturales y Enteros",
+    "section": "1 Desarrollo",
+    "text": "1 Desarrollo\nAgrega aquí el contenido del taller: definiciones, teoremas, ejercicios resueltos."
+  },
+  {
+    "objectID": "talleres/taller-07.html#ejercicios",
+    "href": "talleres/taller-07.html#ejercicios",
+    "title": "Taller 07 — Números Naturales y Enteros",
+    "section": "2 Ejercicios",
+    "text": "2 Ejercicios\n\n2.1 Ejercicio 1\nEnunciado.\nSolución:\n\n\n\n2.2 Ejercicio 2\nEnunciado.\nSolución:"
+  },
+  {
+    "objectID": "talleres/taller-07.html#conclusiones",
+    "href": "talleres/taller-07.html#conclusiones",
+    "title": "Taller 07 — Números Naturales y Enteros",
+    "section": "Conclusiones",
+    "text": "Conclusiones\nReflexión sobre los temas trabajados."
+  },
+  {
+    "objectID": "talleres/taller-01.html",
+    "href": "talleres/taller-01.html",
+    "title": "Taller 01 — Verificación Formal de Algoritmos",
+    "section": "",
+    "text": "Contexto del taller. Este taller aborda la verificación formal de algoritmos mediante lógica de predicados. Se trabajan tres ejercicios fundamentales: formalización de propiedades de corrección, demostración de seguridad, y prueba por contradicción. Al final se plantea un proyecto evaluable de mayor complejidad."
+  },
+  {
+    "objectID": "talleres/taller-01.html#introducción",
+    "href": "talleres/taller-01.html#introducción",
+    "title": "Taller 01 — Verificación Formal de Algoritmos",
+    "section": "",
+    "text": "Contexto del taller. Este taller aborda la verificación formal de algoritmos mediante lógica de predicados. Se trabajan tres ejercicios fundamentales: formalización de propiedades de corrección, demostración de seguridad, y prueba por contradicción. Al final se plantea un proyecto evaluable de mayor complejidad."
+  },
+  {
+    "objectID": "talleres/taller-01.html#ejercicios",
+    "href": "talleres/taller-01.html#ejercicios",
+    "title": "Taller 01 — Verificación Formal de Algoritmos",
+    "section": "1 Ejercicios",
+    "text": "1 Ejercicios\n\n1.1 Ejercicio a — Propiedad de corrección en lógica de predicados\nEnunciado. Formule en lógica de predicados la propiedad de corrección de un algoritmo.\n\n1.1.1 Marco teórico\nUn algoritmo \\(A\\) se dice correcto respecto de una especificación si satisface simultáneamente dos condiciones:\n\nPrecondición \\(P(x)\\): describe el estado válido de las entradas antes de ejecutar \\(A\\).\nPostcondición \\(Q(x, y)\\): describe la relación que debe existir entre la entrada \\(x\\) y la salida \\(y\\) tras la ejecución de \\(A\\).\n\nLa corrección total se expresa como:\n\\[\n\\forall x\\, \\bigl(P(x) \\to \\exists y\\, (A(x) = y \\land Q(x, y))\\bigr)\n\\]\nLa corrección parcial (sin garantía de terminación) es:\n\\[\n\\{P\\}\\; A \\;\\{Q\\}\n\\]\nen notación de Hoare.\n\n\n1.1.2 Desarrollo\nSea \\(A\\) el algoritmo de búsqueda lineal en un arreglo \\(a[1..n]\\):\n\nPrecondición: \\(P(a, n, v) \\;:=\\; n \\geq 1 \\land \\forall i\\,(1 \\leq i \\leq n \\to a[i] \\in \\mathbb{Z})\\)\nPostcondición: \\(Q(a, n, v, r) \\;:=\\; \\bigl(r \\neq -1 \\to a[r] = v\\bigr) \\land \\bigl(r = -1 \\to \\forall i\\,(1 \\leq i \\leq n \\to a[i] \\neq v)\\bigr)\\)\n\nLa fórmula de corrección queda:\n\\[\n\\forall a, n, v\\;\\Bigl[P(a,n,v) \\;\\to\\; \\exists r\\;\\bigl(A_{\\text{búsqueda}}(a,n,v) = r \\;\\land\\; Q(a,n,v,r)\\bigr)\\Bigr]\n\\]\nInterpretación: si la entrada es un arreglo bien formado de enteros, entonces el algoritmo devuelve un índice \\(r\\) tal que: si \\(r \\neq -1\\) el valor en esa posición es \\(v\\), y si \\(r = -1\\) el valor \\(v\\) no aparece en el arreglo.\n\n\n\n\n\n\nNota\n\n\n\nNota. La distinción entre corrección parcial y total es crucial: la corrección parcial no garantiza que el algoritmo termine, solo que si termina lo hace correctamente.\n\n\n\n\n\n\n1.2 Ejercicio b — La propiedad de seguridad implica ausencia de estados inválidos\nEnunciado. Demuestre que la propiedad de seguridad implica ausencia de estados inválidos.\n\n1.2.1 Marco teórico\nEn la verificación de sistemas concurrentes y distribuidos, una propiedad de seguridad (safety property) afirma que “algo malo nunca ocurre”. Formalmente, dado un conjunto de estados \\(S\\) y un predicado de invalidez \\(\\text{Bad} \\subseteq S\\):\n\\[\n\\text{Safety}(\\sigma) \\;:=\\; \\forall t \\geq 0,\\; \\sigma(t) \\notin \\text{Bad}\n\\]\ndonde \\(\\sigma : \\mathbb{N} \\to S\\) es una traza de ejecución del sistema.\n\n\n1.2.2 Desarrollo — Demostración directa\nProposición. Si un sistema satisface la propiedad de seguridad \\(\\text{Safety}\\), entonces ninguna traza de ejecución visita un estado inválido.\nDemostración.\nSea \\(\\Sigma\\) el conjunto de todas las trazas de ejecución del sistema y sea \\(\\text{Bad} \\subseteq S\\) el conjunto de estados inválidos.\nSupongamos que el sistema satisface \\(\\text{Safety}\\), es decir:\n\\[\n\\forall \\sigma \\in \\Sigma,\\; \\forall t \\geq 0 : \\sigma(t) \\notin \\text{Bad} \\tag{1}\n\\]\nQueremos probar que no existe ninguna traza que visite un estado inválido:\n\\[\n\\nexists\\, \\sigma \\in \\Sigma,\\; \\exists\\, t \\geq 0 : \\sigma(t) \\in \\text{Bad}\n\\]\nPor contradicción: suponga que existe \\(\\sigma_0 \\in \\Sigma\\) y \\(t_0 \\geq 0\\) tal que \\(\\sigma_0(t_0) \\in \\text{Bad}\\). Pero esto contradice directamente \\((1)\\), que afirma que para toda traza y todo instante de tiempo, el estado no pertenece a \\(\\text{Bad}\\).\nPor lo tanto, no puede existir tal \\(\\sigma_0\\), y concluimos:\n\\[\n\\forall \\sigma \\in \\Sigma,\\; \\forall t \\geq 0 : \\sigma(t) \\notin \\text{Bad} \\quad \\square\n\\]\n\n\n\n\n\n\nTip\n\n\n\nObservación. La implicación es bidireccional: un sistema está libre de estados inválidos si y solo si satisface la propiedad de seguridad correspondiente. Esto hace de \\(\\text{Safety}\\) una caracterización exacta de la ausencia de errores.\n\n\n\n\n\n\n1.3 Ejercicio c — Prueba por contradicción: un protocolo no puede confirmar dos valores distintos\nEnunciado. Pruebe por contradicción que un protocolo no puede confirmar dos valores distintos.\n\n1.3.1 Marco teórico\nEn sistemas distribuidos, la propiedad de acuerdo (agreement) en protocolos de consenso establece que todos los procesos correctos deben decidir el mismo valor. Formalmente, sea \\(\\text{dec}(p)\\) el valor decidido por el proceso \\(p\\):\n\\[\n\\text{Agreement} \\;:=\\; \\forall p, q \\in \\Pi_{\\text{correcto}} : \\text{dec}(p) = \\text{dec}(q)\n\\]\n\n\n1.3.2 Desarrollo — Demostración por contradicción\nProposición. Si un protocolo satisface la propiedad de acuerdo, entonces no puede confirmar (decidir) dos valores distintos simultáneamente.\nDemostración.\nHipótesis: el protocolo \\(\\mathcal{P}\\) satisface \\(\\text{Agreement}\\).\nSuponga por contradicción que existen dos procesos correctos \\(p, q \\in \\Pi_{\\text{correcto}}\\) y dos valores \\(v_1 \\neq v_2\\) tales que:\n\\[\n\\text{dec}(p) = v_1 \\quad \\text{y} \\quad \\text{dec}(q) = v_2\n\\]\nPor hipótesis, \\(\\mathcal{P}\\) satisface \\(\\text{Agreement}\\), lo que implica:\n\\[\n\\text{dec}(p) = \\text{dec}(q) \\tag{2}\n\\]\nPero de las suposiciones tenemos \\(\\text{dec}(p) = v_1\\) y \\(\\text{dec}(q) = v_2\\) con \\(v_1 \\neq v_2\\), luego:\n\\[\n\\text{dec}(p) \\neq \\text{dec}(q) \\tag{3}\n\\]\nLas afirmaciones \\((2)\\) y \\((3)\\) son contradictorias. Por lo tanto, la suposición inicial es falsa, y concluimos:\n\\[\n\\nexists\\, p, q \\in \\Pi_{\\text{correcto}},\\; v_1 \\neq v_2 : \\text{dec}(p) = v_1 \\land \\text{dec}(q) = v_2 \\quad \\square\n\\]\n\n\n\n\n\n\nImportante\n\n\n\nAlcance. La demostración asume que \\(p\\) y \\(q\\) son procesos correctos (no fallidos). En modelos con fallos de detención (crash failures) un proceso puede no decidir nunca, pero si decide, debe coincidir con los demás."
+  },
+  {
+    "objectID": "talleres/taller-01.html#proyecto-evaluable",
+    "href": "talleres/taller-01.html#proyecto-evaluable",
+    "title": "Taller 01 — Verificación Formal de Algoritmos",
+    "section": "2 Proyecto evaluable",
+    "text": "2 Proyecto evaluable\n\nEnunciado. Modelar formalmente un protocolo de consenso distribuido y demostrar corrección y seguridad.\n\n\n2.1 Descripción del modelo\nSea \\(\\Pi = \\{p_1, p_2, \\ldots, p_n\\}\\) el conjunto de procesos. Definimos el protocolo mediante las siguientes propiedades:\n\n\n\n\n\n\n\n\nPropiedad\nFórmula\nDescripción\n\n\n\n\nValidez\n\\(\\forall p: \\text{dec}(p) \\in V_{\\text{propuesto}}\\)\nSolo se decide un valor propuesto\n\n\nAcuerdo\n\\(\\forall p,q: \\text{dec}(p) = \\text{dec}(q)\\)\nTodos deciden lo mismo\n\n\nTerminación\n\\(\\forall p \\in \\Pi_{\\text{correcto}}: \\exists t, \\text{dec}(p) \\downarrow\\)\nTodo proceso correcto decide\n\n\nIntegridad\n\\(\\text{dec}(p)\\) se establece a lo sumo una vez\nNo se revoca la decisión\n\n\n\n\n\n2.2 Corrección del protocolo\nTeorema (Corrección). El protocolo \\(\\mathcal{P}\\) es correcto respecto de la especificación de consenso si satisface Validez, Acuerdo, Terminación e Integridad.\nDemostración (esquema).\n\nValidez: por construcción del protocolo, un proceso solo puede decidir un valor que haya recibido en la fase de propuesta. Como toda propuesta proviene de un proceso que inició con ese valor, \\(\\text{dec}(p) \\in V_{\\text{propuesto}}\\).\nAcuerdo: demostrado en el Ejercicio c por contradicción.\nTerminación: en ausencia de más de \\(f &lt; n/2\\) fallos, la mayoría de procesos correctos siempre completa las rondas del protocolo.\nIntegridad: una vez que \\(p\\) escribe \\(\\text{dec}(p)\\), no existen mensajes posteriores que lo modifiquen (propiedad de escritura única).\n\n\n\n2.3 Propiedad de seguridad\nTeorema (Seguridad). El protocolo \\(\\mathcal{P}\\) no entra en estados inválidos durante su ejecución.\nDemostración. Se define \\(\\text{Bad}\\) como el conjunto de estados globales en los que dos procesos correctos han decidido valores distintos. Por el Ejercicio c, \\(\\mathcal{P}\\) satisface \\(\\text{Agreement}\\), y por el Ejercicio b esto implica \\(\\text{Safety}(\\sigma)\\) para toda traza \\(\\sigma\\). \\(\\square\\)"
+  },
+  {
+    "objectID": "talleres/taller-01.html#rúbrica-de-evaluación",
+    "href": "talleres/taller-01.html#rúbrica-de-evaluación",
+    "title": "Taller 01 — Verificación Formal de Algoritmos",
+    "section": "Rúbrica de evaluación",
+    "text": "Rúbrica de evaluación\n\n\n\n\n\n\n\n\nCriterio\nDescripción\nPuntaje\n\n\n\n\nFormalización lógica correcta\nUso apropiado de cuantificadores, conectivos y notación de Hoare\n/40\n\n\nRigor de las demostraciones\nPasos claros, sin saltos lógicos, conclusión correcta\n/40\n\n\nClaridad matemática\nNotación consistente, definiciones precisas, redacción concisa\n/20\n\n\nTotal\n\n/100"
+  },
+  {
+    "objectID": "talleres/taller-01.html#conclusiones",
+    "href": "talleres/taller-01.html#conclusiones",
+    "title": "Taller 01 — Verificación Formal de Algoritmos",
+    "section": "Conclusiones",
+    "text": "Conclusiones\n\nLa lógica de predicados permite formalizar con precisión qué significa que un algoritmo sea correcto, separando claramente precondiciones de postcondiciones.\nLa propiedad de seguridad es una herramienta poderosa: basta demostrarla para garantizar la ausencia total de estados inválidos en cualquier traza de ejecución.\nLa prueba por contradicción es natural para propiedades de consenso: asumir dos decisiones distintas contradice directamente la definición de acuerdo.\n\n\nFundamentos Matemáticos Aplicados · Semestre 2026-I"
+  },
+  {
+    "objectID": "talleres/taller-06.html",
+    "href": "talleres/taller-06.html",
+    "title": "Taller 06 — Inducción Matemática",
+    "section": "",
+    "text": "Taller del curso Fundamentos de las Matemáticas — Semestre 2026-I."
+  },
+  {
+    "objectID": "talleres/taller-06.html#introducción",
+    "href": "talleres/taller-06.html#introducción",
+    "title": "Taller 06 — Inducción Matemática",
+    "section": "",
+    "text": "Taller del curso Fundamentos de las Matemáticas — Semestre 2026-I."
+  },
+  {
+    "objectID": "talleres/taller-06.html#desarrollo",
+    "href": "talleres/taller-06.html#desarrollo",
+    "title": "Taller 06 — Inducción Matemática",
+    "section": "1 Desarrollo",
+    "text": "1 Desarrollo\nAgrega aquí el contenido del taller: definiciones, teoremas, ejercicios resueltos."
+  },
+  {
+    "objectID": "talleres/taller-06.html#ejercicios",
+    "href": "talleres/taller-06.html#ejercicios",
+    "title": "Taller 06 — Inducción Matemática",
+    "section": "2 Ejercicios",
+    "text": "2 Ejercicios\n\n2.1 Ejercicio 1\nEnunciado.\nSolución:\n\n\n\n2.2 Ejercicio 2\nEnunciado.\nSolución:"
+  },
+  {
+    "objectID": "talleres/taller-06.html#conclusiones",
+    "href": "talleres/taller-06.html#conclusiones",
+    "title": "Taller 06 — Inducción Matemática",
+    "section": "Conclusiones",
+    "text": "Conclusiones\nReflexión sobre los temas trabajados."
+  },
+  {
+    "objectID": "talleres/taller-08.html",
+    "href": "talleres/taller-08.html",
+    "title": "Taller 08 — Introducción al Análisis Real",
+    "section": "",
+    "text": "Taller del curso Fundamentos de las Matemáticas — Semestre 2026-I."
+  },
+  {
+    "objectID": "talleres/taller-08.html#introducción",
+    "href": "talleres/taller-08.html#introducción",
+    "title": "Taller 08 — Introducción al Análisis Real",
+    "section": "",
+    "text": "Taller del curso Fundamentos de las Matemáticas — Semestre 2026-I."
+  },
+  {
+    "objectID": "talleres/taller-08.html#desarrollo",
+    "href": "talleres/taller-08.html#desarrollo",
+    "title": "Taller 08 — Introducción al Análisis Real",
+    "section": "1 Desarrollo",
+    "text": "1 Desarrollo\nAgrega aquí el contenido del taller: definiciones, teoremas, ejercicios resueltos."
+  },
+  {
+    "objectID": "talleres/taller-08.html#ejercicios",
+    "href": "talleres/taller-08.html#ejercicios",
+    "title": "Taller 08 — Introducción al Análisis Real",
+    "section": "2 Ejercicios",
+    "text": "2 Ejercicios\n\n2.1 Ejercicio 1\nEnunciado.\nSolución:\n\n\n\n2.2 Ejercicio 2\nEnunciado.\nSolución:"
+  },
+  {
+    "objectID": "talleres/taller-08.html#conclusiones",
+    "href": "talleres/taller-08.html#conclusiones",
+    "title": "Taller 08 — Introducción al Análisis Real",
+    "section": "Conclusiones",
+    "text": "Conclusiones\nReflexión sobre los temas trabajados."
+  },
+  {
+    "objectID": "talleres/taller-02.html",
+    "href": "talleres/taller-02.html",
+    "title": "Taller 02 — Tablas de Verdad y Equivalencias Lógicas",
+    "section": "",
+    "text": "Taller del curso Fundamentos de las Matemáticas — Semestre 2026-I."
+  },
+  {
+    "objectID": "talleres/taller-02.html#introducción",
+    "href": "talleres/taller-02.html#introducción",
+    "title": "Taller 02 — Tablas de Verdad y Equivalencias Lógicas",
+    "section": "",
+    "text": "Taller del curso Fundamentos de las Matemáticas — Semestre 2026-I."
+  },
+  {
+    "objectID": "talleres/taller-02.html#desarrollo",
+    "href": "talleres/taller-02.html#desarrollo",
+    "title": "Taller 02 — Tablas de Verdad y Equivalencias Lógicas",
+    "section": "1 Desarrollo",
+    "text": "1 Desarrollo\nAgrega aquí el contenido del taller: definiciones, teoremas, ejercicios resueltos."
+  },
+  {
+    "objectID": "talleres/taller-02.html#ejercicios",
+    "href": "talleres/taller-02.html#ejercicios",
+    "title": "Taller 02 — Tablas de Verdad y Equivalencias Lógicas",
+    "section": "2 Ejercicios",
+    "text": "2 Ejercicios\n\n2.1 Ejercicio 1\nEnunciado.\nSolución:\n\n\n\n2.2 Ejercicio 2\nEnunciado.\nSolución:"
+  },
+  {
+    "objectID": "talleres/taller-02.html#conclusiones",
+    "href": "talleres/taller-02.html#conclusiones",
+    "title": "Taller 02 — Tablas de Verdad y Equivalencias Lógicas",
+    "section": "Conclusiones",
+    "text": "Conclusiones\nReflexión sobre los temas trabajados."
+  },
+  {
+    "objectID": "talleres/taller-04.html",
+    "href": "talleres/taller-04.html",
+    "title": "Taller 04 — Relaciones y Propiedades",
+    "section": "",
+    "text": "Taller del curso Fundamentos de las Matemáticas — Semestre 2026-I."
+  },
+  {
+    "objectID": "talleres/taller-04.html#introducción",
+    "href": "talleres/taller-04.html#introducción",
+    "title": "Taller 04 — Relaciones y Propiedades",
+    "section": "",
+    "text": "Taller del curso Fundamentos de las Matemáticas — Semestre 2026-I."
+  },
+  {
+    "objectID": "talleres/taller-04.html#desarrollo",
+    "href": "talleres/taller-04.html#desarrollo",
+    "title": "Taller 04 — Relaciones y Propiedades",
+    "section": "1 Desarrollo",
+    "text": "1 Desarrollo\nAgrega aquí el contenido del taller: definiciones, teoremas, ejercicios resueltos."
+  },
+  {
+    "objectID": "talleres/taller-04.html#ejercicios",
+    "href": "talleres/taller-04.html#ejercicios",
+    "title": "Taller 04 — Relaciones y Propiedades",
+    "section": "2 Ejercicios",
+    "text": "2 Ejercicios\n\n2.1 Ejercicio 1\nEnunciado.\nSolución:\n\n\n\n2.2 Ejercicio 2\nEnunciado.\nSolución:"
+  },
+  {
+    "objectID": "talleres/taller-04.html#conclusiones",
+    "href": "talleres/taller-04.html#conclusiones",
+    "title": "Taller 04 — Relaciones y Propiedades",
+    "section": "Conclusiones",
+    "text": "Conclusiones\nReflexión sobre los temas trabajados."
+  },
+  {
+    "objectID": "talleres/taller-03.html",
+    "href": "talleres/taller-03.html",
+    "title": "Taller 03 — Teoría de Conjuntos",
+    "section": "",
+    "text": "Taller del curso Fundamentos de las Matemáticas — Semestre 2026-I."
+  },
+  {
+    "objectID": "talleres/taller-03.html#introducción",
+    "href": "talleres/taller-03.html#introducción",
+    "title": "Taller 03 — Teoría de Conjuntos",
+    "section": "",
+    "text": "Taller del curso Fundamentos de las Matemáticas — Semestre 2026-I."
+  },
+  {
+    "objectID": "talleres/taller-03.html#desarrollo",
+    "href": "talleres/taller-03.html#desarrollo",
+    "title": "Taller 03 — Teoría de Conjuntos",
+    "section": "1 Desarrollo",
+    "text": "1 Desarrollo\nAgrega aquí el contenido del taller: definiciones, teoremas, ejercicios resueltos."
+  },
+  {
+    "objectID": "talleres/taller-03.html#ejercicios",
+    "href": "talleres/taller-03.html#ejercicios",
+    "title": "Taller 03 — Teoría de Conjuntos",
+    "section": "2 Ejercicios",
+    "text": "2 Ejercicios\n\n2.1 Ejercicio 1\nEnunciado.\nSolución:\n\n\n\n2.2 Ejercicio 2\nEnunciado.\nSolución:"
+  },
+  {
+    "objectID": "talleres/taller-03.html#conclusiones",
+    "href": "talleres/taller-03.html#conclusiones",
+    "title": "Taller 03 — Teoría de Conjuntos",
+    "section": "Conclusiones",
+    "text": "Conclusiones\nReflexión sobre los temas trabajados."
+  }
+]
