@@ -1,0 +1,277 @@
+---
+title: "Taller 01 — Verificación Formal de Algoritmos"
+subtitle: "Fundamentos Matemáticos Aplicados · 2026-I"
+author:
+  - name: "Tu Nombre"
+    affiliation: "Pregrado en Matemáticas"
+date: ""
+lang: es
+
+format:
+  html:
+    toc: true
+    toc-title: "Contenido"
+    toc-depth: 3
+    number-sections: true
+    code-fold: true
+    code-tools: true
+    theme: cosmo
+    mainfont: "EB Garamond"
+    monofont: "JetBrains Mono"
+    fontsize: 1.05em
+    highlight-style: github
+    html-math-method: mathjax
+
+execute:
+  echo: true
+  warning: false
+---
+
+## Introducción {.unnumbered}
+
+> **Contexto del taller.** Este taller aborda la verificación formal de algoritmos
+> mediante lógica de predicados. Se trabajan tres ejercicios fundamentales:
+> formalización de propiedades de corrección, demostración de seguridad, y
+> prueba por contradicción. Al final se plantea un proyecto evaluable de mayor
+> complejidad.
+
+---
+
+## Ejercicios
+
+### Ejercicio a — Propiedad de corrección en lógica de predicados
+
+**Enunciado.** Formule en lógica de predicados la propiedad de corrección de un algoritmo.
+
+#### Marco teórico
+
+Un algoritmo $A$ se dice **correcto** respecto de una especificación si satisface
+simultáneamente dos condiciones:
+
+- **Precondición** $P(x)$: describe el estado válido de las entradas antes de ejecutar $A$.
+- **Postcondición** $Q(x, y)$: describe la relación que debe existir entre la entrada $x$
+  y la salida $y$ tras la ejecución de $A$.
+
+La corrección total se expresa como:
+
+$$
+\forall x\, \bigl(P(x) \to \exists y\, (A(x) = y \land Q(x, y))\bigr)
+$$
+
+La corrección parcial (sin garantía de terminación) es:
+
+$$
+\{P\}\; A \;\{Q\}
+$$
+
+en notación de **Hoare**.
+
+#### Desarrollo
+
+Sea $A$ el algoritmo de **búsqueda lineal** en un arreglo $a[1..n]$:
+
+- **Precondición:** $P(a, n, v) \;:=\; n \geq 1 \land \forall i\,(1 \leq i \leq n \to a[i] \in \mathbb{Z})$
+- **Postcondición:** $Q(a, n, v, r) \;:=\; \bigl(r \neq -1 \to a[r] = v\bigr) \land \bigl(r = -1 \to \forall i\,(1 \leq i \leq n \to a[i] \neq v)\bigr)$
+
+La fórmula de corrección queda:
+
+$$
+\forall a, n, v\;\Bigl[P(a,n,v) \;\to\; \exists r\;\bigl(A_{\text{búsqueda}}(a,n,v) = r \;\land\; Q(a,n,v,r)\bigr)\Bigr]
+$$
+
+**Interpretación:** si la entrada es un arreglo bien formado de enteros, entonces el
+algoritmo devuelve un índice $r$ tal que: si $r \neq -1$ el valor en esa posición es $v$,
+y si $r = -1$ el valor $v$ no aparece en el arreglo.
+
+::: {.callout-note}
+**Nota.** La distinción entre corrección *parcial* y *total* es crucial: la corrección
+parcial no garantiza que el algoritmo termine, solo que *si* termina lo hace
+correctamente.
+:::
+
+---
+
+### Ejercicio b — La propiedad de seguridad implica ausencia de estados inválidos
+
+**Enunciado.** Demuestre que la propiedad de seguridad implica ausencia de estados inválidos.
+
+#### Marco teórico
+
+En la verificación de sistemas concurrentes y distribuidos, una **propiedad de seguridad**
+(*safety property*) afirma que *"algo malo nunca ocurre"*. Formalmente, dado un conjunto
+de estados $S$ y un predicado de invalidez $\text{Bad} \subseteq S$:
+
+$$
+\text{Safety}(\sigma) \;:=\; \forall t \geq 0,\; \sigma(t) \notin \text{Bad}
+$$
+
+donde $\sigma : \mathbb{N} \to S$ es una traza de ejecución del sistema.
+
+#### Desarrollo — Demostración directa
+
+**Proposición.** Si un sistema satisface la propiedad de seguridad $\text{Safety}$,
+entonces ninguna traza de ejecución visita un estado inválido.
+
+**Demostración.**
+
+Sea $\Sigma$ el conjunto de todas las trazas de ejecución del sistema y sea
+$\text{Bad} \subseteq S$ el conjunto de estados inválidos.
+
+Supongamos que el sistema satisface $\text{Safety}$, es decir:
+
+$$
+\forall \sigma \in \Sigma,\; \forall t \geq 0 : \sigma(t) \notin \text{Bad} \tag{1}
+$$
+
+Queremos probar que no existe ninguna traza que visite un estado inválido:
+
+$$
+\nexists\, \sigma \in \Sigma,\; \exists\, t \geq 0 : \sigma(t) \in \text{Bad}
+$$
+
+**Por contradicción:** suponga que existe $\sigma_0 \in \Sigma$ y $t_0 \geq 0$ tal que
+$\sigma_0(t_0) \in \text{Bad}$. Pero esto contradice directamente $(1)$, que afirma que
+*para toda* traza y *todo* instante de tiempo, el estado no pertenece a $\text{Bad}$.
+
+Por lo tanto, no puede existir tal $\sigma_0$, y concluimos:
+
+$$
+\forall \sigma \in \Sigma,\; \forall t \geq 0 : \sigma(t) \notin \text{Bad} \quad \square
+$$
+
+::: {.callout-tip}
+**Observación.** La implicación es bidireccional: un sistema está libre de estados
+inválidos *si y solo si* satisface la propiedad de seguridad correspondiente. Esto hace
+de $\text{Safety}$ una caracterización exacta de la ausencia de errores.
+:::
+
+---
+
+### Ejercicio c — Prueba por contradicción: un protocolo no puede confirmar dos valores distintos
+
+**Enunciado.** Pruebe por contradicción que un protocolo no puede confirmar dos valores distintos.
+
+#### Marco teórico
+
+En sistemas distribuidos, la propiedad de **acuerdo** (*agreement*) en protocolos de
+consenso establece que todos los procesos correctos deben decidir el mismo valor.
+Formalmente, sea $\text{dec}(p)$ el valor decidido por el proceso $p$:
+
+$$
+\text{Agreement} \;:=\; \forall p, q \in \Pi_{\text{correcto}} : \text{dec}(p) = \text{dec}(q)
+$$
+
+#### Desarrollo — Demostración por contradicción
+
+**Proposición.** Si un protocolo satisface la propiedad de acuerdo, entonces no puede
+confirmar (*decidir*) dos valores distintos simultáneamente.
+
+**Demostración.**
+
+**Hipótesis:** el protocolo $\mathcal{P}$ satisface $\text{Agreement}$.
+
+**Suponga por contradicción** que existen dos procesos correctos $p, q \in \Pi_{\text{correcto}}$
+y dos valores $v_1 \neq v_2$ tales que:
+
+$$
+\text{dec}(p) = v_1 \quad \text{y} \quad \text{dec}(q) = v_2
+$$
+
+Por hipótesis, $\mathcal{P}$ satisface $\text{Agreement}$, lo que implica:
+
+$$
+\text{dec}(p) = \text{dec}(q) \tag{2}
+$$
+
+Pero de las suposiciones tenemos $\text{dec}(p) = v_1$ y $\text{dec}(q) = v_2$ con $v_1 \neq v_2$, luego:
+
+$$
+\text{dec}(p) \neq \text{dec}(q) \tag{3}
+$$
+
+Las afirmaciones $(2)$ y $(3)$ son contradictorias. Por lo tanto, la suposición inicial
+es falsa, y concluimos:
+
+$$
+\nexists\, p, q \in \Pi_{\text{correcto}},\; v_1 \neq v_2 : \text{dec}(p) = v_1 \land \text{dec}(q) = v_2 \quad \square
+$$
+
+::: {.callout-important}
+**Alcance.** La demostración asume que $p$ y $q$ son procesos *correctos* (no fallidos).
+En modelos con fallos de detención (*crash failures*) un proceso puede no decidir nunca,
+pero si decide, debe coincidir con los demás.
+:::
+
+---
+
+## Proyecto evaluable
+
+> **Enunciado.** Modelar formalmente un protocolo de consenso distribuido y demostrar
+> corrección y seguridad.
+
+### Descripción del modelo
+
+Sea $\Pi = \{p_1, p_2, \ldots, p_n\}$ el conjunto de procesos. Definimos el protocolo
+mediante las siguientes propiedades:
+
+| Propiedad | Fórmula | Descripción |
+|-----------|---------|-------------|
+| **Validez** | $\forall p: \text{dec}(p) \in V_{\text{propuesto}}$ | Solo se decide un valor propuesto |
+| **Acuerdo** | $\forall p,q: \text{dec}(p) = \text{dec}(q)$ | Todos deciden lo mismo |
+| **Terminación** | $\forall p \in \Pi_{\text{correcto}}: \exists t, \text{dec}(p) \downarrow$ | Todo proceso correcto decide |
+| **Integridad** | $\text{dec}(p)$ se establece a lo sumo una vez | No se revoca la decisión |
+
+### Corrección del protocolo
+
+**Teorema (Corrección).** El protocolo $\mathcal{P}$ es correcto respecto de la especificación
+de consenso si satisface Validez, Acuerdo, Terminación e Integridad.
+
+**Demostración (esquema).**
+
+1. **Validez:** por construcción del protocolo, un proceso solo puede decidir un valor
+   que haya recibido en la fase de propuesta. Como toda propuesta proviene de un proceso
+   que inició con ese valor, $\text{dec}(p) \in V_{\text{propuesto}}$.
+
+2. **Acuerdo:** demostrado en el Ejercicio c por contradicción.
+
+3. **Terminación:** en ausencia de más de $f < n/2$ fallos, la mayoría de procesos
+   correctos siempre completa las rondas del protocolo.
+
+4. **Integridad:** una vez que $p$ escribe $\text{dec}(p)$, no existen mensajes
+   posteriores que lo modifiquen (propiedad de escritura única).
+
+### Propiedad de seguridad
+
+**Teorema (Seguridad).** El protocolo $\mathcal{P}$ no entra en estados inválidos
+durante su ejecución.
+
+**Demostración.** Se define $\text{Bad}$ como el conjunto de estados globales en los
+que dos procesos correctos han decidido valores distintos. Por el Ejercicio c,
+$\mathcal{P}$ satisface $\text{Agreement}$, y por el Ejercicio b esto implica
+$\text{Safety}(\sigma)$ para toda traza $\sigma$. $\square$
+
+---
+
+## Rúbrica de evaluación {.unnumbered}
+
+| Criterio | Descripción | Puntaje |
+|----------|-------------|---------|
+| **Formalización lógica correcta** | Uso apropiado de cuantificadores, conectivos y notación de Hoare | /40 |
+| **Rigor de las demostraciones** | Pasos claros, sin saltos lógicos, conclusión correcta | /40 |
+| **Claridad matemática** | Notación consistente, definiciones precisas, redacción concisa | /20 |
+| **Total** | | **/100** |
+
+---
+
+## Conclusiones {.unnumbered}
+
+- La lógica de predicados permite formalizar con precisión qué significa que un
+  algoritmo sea correcto, separando claramente precondiciones de postcondiciones.
+- La propiedad de seguridad es una herramienta poderosa: basta demostrarla para
+  garantizar la ausencia total de estados inválidos en cualquier traza de ejecución.
+- La prueba por contradicción es natural para propiedades de consenso: asumir dos
+  decisiones distintas contradice directamente la definición de acuerdo.
+
+---
+
+*Fundamentos Matemáticos Aplicados · Semestre 2026-I*
