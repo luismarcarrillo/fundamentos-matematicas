@@ -1,0 +1,51 @@
+project:
+  type: website
+  output-dir: docs
+  resources:
+    - "index.html"          # copia tu portada tal cual a docs/
+
+website:
+  title: "Fundamentos de las Matemáticas"
+  description: "Portafolio académico · Pregrado en Matemáticas · 2026-I"
+  site-url: "https://luismarcarrillo.github.io/fundamentos-matematicas"
+
+  navbar:
+    left:
+      - text: "Inicio"
+        href: index.html           # ← usa tu index.html, no .qmd
+      - text: "Talleres"
+        menu:
+          - text: "Taller 01 — Verificación Formal de Algoritmos"
+            href: talleres/taller-01.qmd
+          - text: "Taller 02 — Tablas de verdad"
+            href: talleres/taller-02.qmd
+          - text: "Taller 03 — Teoría de conjuntos"
+            href: talleres/taller-03.qmd
+          - text: "Taller 04 — Relaciones"
+            href: talleres/taller-04.qmd
+          - text: "Taller 05 — Funciones"
+            href: talleres/taller-05.qmd
+          - text: "Taller 06 — Inducción matemática"
+            href: talleres/taller-06.qmd
+          - text: "Taller 07 — Números naturales"
+            href: talleres/taller-07.qmd
+          - text: "Taller 08 — Análisis real"
+            href: talleres/taller-08.qmd
+
+  page-footer:
+    left: "Fundamentos de las Matemáticas · 2026-I"
+    right: "Quarto · GitHub Pages"
+
+format:
+  html:
+    theme:
+      light: [cosmo, assets/custom.scss]
+    mainfont: "EB Garamond"
+    monofont: "JetBrains Mono"
+    fontsize: 1.05em
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    highlight-style: github
+    code-fold: true
+    code-tools: true
