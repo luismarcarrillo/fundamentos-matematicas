@@ -1,0 +1,143 @@
+---
+title: "Taller 01 — Lógica Proposicional y Conectivos"
+subtitle: "Fundamentos de las Matemáticas · 2026-I"
+author:
+  - name: "Tu Nombre"
+    affiliation: "Pregrado en Matemáticas"
+date: "2026-02-10"
+date-format: "D [de] MMMM [de] YYYY"
+lang: es
+
+format:
+  html:
+    toc: true
+    toc-title: "Contenido"
+    number-sections: true
+    code-fold: true
+    code-tools: true
+
+# jupyter: python3    ← descomenta si usas Python
+# jupyter: julia-1.10 ← descomenta si usas Julia
+---
+
+## Introducción {.unnumbered}
+
+> Taller correspondiente a la primera unidad del curso.
+> Se trabajan los conceptos fundamentales de lógica proposicional.
+
+---
+
+## Proposiciones y valor de verdad
+
+Una **proposición** es un enunciado declarativo que puede ser verdadero o falso,
+pero no ambos simultáneamente.
+
+**Ejemplos:**
+
+- $p$: "El número 2 es primo." — *Verdadero*
+- $q$: "Todo número par es divisible entre 4." — *Falso*
+
+---
+
+## Conectivos lógicos
+
+| Conectivo      | Símbolo | Nombre        |
+|----------------|---------|---------------|
+| Negación       | $\neg$  | no            |
+| Conjunción     | $\land$ | y             |
+| Disyunción     | $\lor$  | o             |
+| Condicional    | $\to$   | si … entonces |
+| Bicondicional  | $\leftrightarrow$ | si y solo si |
+
+---
+
+## Tablas de verdad
+
+### Negación
+
+$$
+\begin{array}{c|c}
+p & \neg p \\ \hline
+V & F \\
+F & V
+\end{array}
+$$
+
+### Conjunción
+
+$$
+\begin{array}{cc|c}
+p & q & p \land q \\ \hline
+V & V & V \\
+V & F & F \\
+F & V & F \\
+F & F & F
+\end{array}
+$$
+
+---
+
+## Ejercicios
+
+### Ejercicio 1
+
+Determine el valor de verdad de la proposición compuesta:
+
+$$
+(p \land q) \to (\neg p \lor r)
+$$
+
+para $p = V$, $q = F$, $r = V$.
+
+**Solución:**
+
+Paso a paso:
+
+1. $p \land q = V \land F = F$
+2. $\neg p = \neg V = F$
+3. $\neg p \lor r = F \lor V = V$
+4. $F \to V = V$ ✓
+
+---
+
+### Ejercicio 2
+
+Construya la tabla de verdad completa para:
+
+$$
+\neg(p \lor q) \leftrightarrow (\neg p \land \neg q)
+$$
+
+*Desarrollo:*
+
+```{python}
+#| label: tbl-ej2
+#| tbl-cap: "Tabla de verdad — Ley de De Morgan"
+#| echo: true
+
+# Descomenta si usas Python
+# from itertools import product
+# import pandas as pd
+#
+# rows = []
+# for p, q in product([True, False], repeat=2):
+#     lhs = not (p or q)
+#     rhs = (not p) and (not q)
+#     rows.append({"p": p, "q": q, "¬(p∨q)": lhs, "¬p∧¬q": rhs, "⟺": lhs == rhs})
+#
+# df = pd.DataFrame(rows).replace({True: "V", False: "F"})
+# display(df)
+```
+
+*(Activa el bloque de código descomentando según el kernel que uses.)*
+
+---
+
+## Conclusiones {.unnumbered}
+
+- Describe brevemente qué aprendiste en este taller.
+- Menciona dificultades encontradas y cómo las resolviste.
+
+---
+
+*Entregado el `r Sys.Date()` · Fundamentos de las Matemáticas · 2026-I*

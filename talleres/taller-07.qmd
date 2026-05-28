@@ -1,0 +1,50 @@
+---
+title: "Taller 07 — Números Naturales y Enteros"
+subtitle: "Fundamentos de las Matemáticas · 2026-I"
+author:
+  - name: "Tu Nombre"
+    affiliation: "Pregrado en Matemáticas"
+date: ""
+lang: es
+format:
+  html:
+    toc: true
+    toc-title: "Contenido"
+    number-sections: true
+    code-fold: true
+    code-tools: true
+---
+
+## Introducción {.unnumbered}
+
+> Taller del curso Fundamentos de las Matemáticas — Semestre 2026-I.
+
+---
+
+## Desarrollo
+
+Agrega aquí el contenido del taller: definiciones, teoremas, ejercicios resueltos.
+
+---
+
+## Ejercicios
+
+### Ejercicio 1
+
+Enunciado.
+
+**Solución:**
+
+---
+
+### Ejercicio 2
+
+Enunciado.
+
+**Solución:**
+
+---
+
+## Conclusiones {.unnumbered}
+
+Reflexión sobre los temas trabajados.

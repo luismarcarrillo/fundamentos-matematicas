@@ -1,0 +1,73 @@
+/*-- assets/custom.scss ------------------------------------------
+   Tema académico · Fundamentos de las Matemáticas · 2026-I
+----------------------------------------------------------------*/
+
+// ── Fuentes (importadas vía _quarto.yml o aquí) ──────────────
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@300;400&display=swap');
+
+// ── Variables Quarto → nuestros tokens ──────────────────────
+$font-family-base:       'EB Garamond', Georgia, serif !default;
+$font-family-monospace:  'JetBrains Mono', 'Courier New', monospace !default;
+$font-size-root:         17px !default;
+$line-height-base:       1.75 !default;
+
+$body-bg:                #f7f5f0 !default;
+$body-color:             #1a1814 !default;
+$headings-color:         #1a1814 !default;
+$link-color:             #1a3a5c !default;
+$link-hover-color:       #8b2020 !default;
+
+$code-bg:                #efece6 !default;
+$code-color:             #1a3a5c !default;
+
+$border-color:           #d0cbc4 !default;
+
+// ── Estilos adicionales (se añaden después del tema base) ────
+
+/*-- scss:rules --*/
+
+body {
+  letter-spacing: 0.005em;
+}
+
+// Títulos con carácter serif
+h1, h2, h3 {
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+h1 { border-bottom: 1px solid #d0cbc4; padding-bottom: 0.4em; }
+
+// Bloques de código más compactos
+pre.sourceCode {
+  border-left: 3px solid #1a3a5c;
+  border-radius: 0;
+  font-size: 0.85em;
+}
+
+// Matemáticas: un poco más de espacio
+.math.display {
+  margin: 1.6em 0;
+}
+
+// Callout más limpio
+.callout {
+  border-radius: 0;
+  border-left-width: 3px;
+}
+
+// Navbar limpia
+.navbar {
+  border-bottom: 1px solid #d0cbc4;
+  background: #f7f5f0 !important;
+  font-style: italic;
+  font-size: 0.95em;
+}
+
+// Footer
+.nav-footer {
+  border-top: 1px solid #d0cbc4;
+  font-size: 0.8em;
+  color: #8a8480;
+  font-style: italic;
+}
