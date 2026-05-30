@@ -49,3 +49,4 @@ format:
     highlight-style: github
     code-fold: true
     code-tools: true
+    favicon: assets/favicon.ico
